@@ -41,9 +41,9 @@ const postCreate = async (postInfo: IPost) => {
   }
 };
 
-const postsRead = async (email: string) => {
+const postsRead = async (_id: string) => {
   try {
-    return await Post.find({}).populate("author").find({ email }).exec();
+    return await Post.find({ author: _id }).exec();
   } catch (err) {
     throw err;
   }

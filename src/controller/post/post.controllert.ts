@@ -11,7 +11,9 @@ import { resFunc } from "../common/ResFunc.common";
 export default {
   readPosts: async (req: Request, res: Response) => {
     try {
-      const posts = await postsRead(req.user.email);
+      const _id = req.query._id as string;
+
+      const posts = await postsRead(_id);
 
       resFunc({ res, data: posts });
     } catch (err: any) {
