@@ -1,4 +1,4 @@
-const whiteList = ["http://localhost:3000"];
+const whiteList = ["http://localhost:3000", "https://ythink-client.vercel.app"];
 
 const corsOptions = {
   origin: function (origin: any, callback: any) {
