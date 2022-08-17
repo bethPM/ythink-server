@@ -9,7 +9,7 @@ import postRoute from "./routes/post/post.route";
 import youtubeRoute from "./routes/youtube/youtube.route";
 
 const app: express.Application = express();
-const port = 5000;
+const port: string | number = process.env.PORT || 5000;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -26,6 +26,6 @@ const connect = mongoose
   .then(() => console.log("MongoDB Connected..."))
   .catch((err: any) => console.log(err));
 
-app.listen(port, () => {
+app.listen(typeof port === "string" ? parseInt(port) : port, () => {
   console.log(`Example app listening on port ${port}`);
 });
